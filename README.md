@@ -41,6 +41,22 @@
 - ⚖️ Verdict Box 投资建议盒 + Analyst Signature
 
 ## 快速上手
+📦 安装
+Claude Skills / WorkBuddy：
+
+bash
+复制
+git clone https://github.com/D-kart/investor-skill.git ~/.claude/skills/investor-skill
+# 或
+git clone https://github.com/D-kart/investor-skill.git ~/.workbuddy/skills/investor-skill
+SkillHub：
+
+bash
+复制
+zip -r investor-skill.zip investor-skill/
+
+# 登录 SkillHub 上传 zip
+触发词：投资人 / VC / PE / FA / 看项目 / 投委会 / 投资备忘录 / 尽调 / DD / BP 分析 / 商业计划书 / 行研 / 竞争格局……
 
 ### 在 Claude / WorkBuddy 中使用
 1. 下载 `investor-skill/` 文件夹，放入 `~/.claude/skills/` 或 `~/.workbuddy/skills/`。
