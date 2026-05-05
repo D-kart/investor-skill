@@ -44,6 +44,10 @@
 📦 安装
 Claude Skills / WorkBuddy：
 
+```bash
+npx skills add D-kart/investor-skill
+```
+
 bash
 复制
 git clone https://github.com/D-kart/investor-skill.git ~/.claude/skills/investor-skill
