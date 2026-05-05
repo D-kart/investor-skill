@@ -1,0 +1,422 @@
+/* =========================================================================
+ * investor-skill · Design Tokens (v1.0.1 · Equity Research Style)
+ * 专业券商研报视觉语言：深蓝主调 / 米白纸面 / 机密带 / 信笺顶 / 罗马章节
+ * 用于：当 Agent 输出 HTML 格式的投资备忘录 / 行研报告时引入。
+ * 灵感：MetaChip & Photomask Equity Research 模板范式
+ * ========================================================================= */
+
+:root {
+  /* ---- Brand · 深蓝主调 ---- */
+  --opc-brand-primary: #1a1a4e;      /* 深海军蓝：机构感 · 标题 · 表头 */
+  --opc-brand-accent:  #c8c0aa;      /* 米色边框：纸感 · 框线 */
+  --opc-brand-ink:     #1a1a1a;      /* 主文字 */
+  --opc-brand-muted:   #6B7280;      /* 次要文字 */
+  --opc-brand-paper:   #faf9f6;      /* 高光块底色 */
+
+  /* ---- Semantic（中国市场规范：涨红跌绿） ---- */
+  --opc-bull-green: #0a6e2a;         /* 推荐 / 看多 */
+  --opc-bull-red:   #8b0000;         /* 高风险 / 警告 */
+  --opc-warn:       #7a4f00;         /* 观察 / 中等风险 */
+  --opc-info:       #1a1a4e;         /* 信息 */
+  --opc-risk-high:  #c00000;
+  --opc-risk-med:   #c67000;
+  --opc-risk-low:   #2a7a2a;
+
+  /* ---- Surface ---- */
+  --opc-bg-canvas:   #f4f1eb;        /* 米白底 · 纸感 */
+  --opc-bg-page:     #ffffff;        /* 报告纸面 */
+  --opc-bg-soft:     #faf9f6;        /* 浅米色高光块 */
+  --opc-bg-band:     #f5f5fa;        /* 浅蓝紫色 verdict box */
+  --opc-bg-redband:  #fff8f8;        /* 浅红 blueteam box */
+  --opc-bg-redrow:   #fdf8f4;        /* 风险表斑马底色 */
+  --opc-border:      #c8c0aa;        /* 米色边框 */
+  --opc-border-soft: #e8e4da;        /* 表格内单元格分隔 */
+
+  /* ---- Typography ---- */
+  --opc-font-serif: "Times New Roman", "Songti SC", "SimSun", serif;
+  --opc-font-sans:  "Arial", "PingFang SC", -apple-system, sans-serif;
+
+  --opc-fs-title:   20pt;            /* 报告大标题 */
+  --opc-fs-subtitle:10.5pt;          /* 副标题 */
+  --opc-fs-section: 8pt;             /* 章节标题（uppercase + letter-spacing） */
+  --opc-fs-body:    10pt;            /* 正文 */
+  --opc-fs-body-sm: 9.5pt;           /* 高光块正文 */
+  --opc-fs-table:   9pt;             /* 表格正文 */
+  --opc-fs-table-sm:8.5pt;           /* 紧凑表格 */
+  --opc-fs-th:      7.5pt;           /* 表头 */
+  --opc-fs-meta:    7.5pt;           /* 顶部元信息 */
+  --opc-fs-caption: 7pt;             /* 备注 */
+
+  --opc-lh-tight: 1.2;
+  --opc-lh-base:  1.6;
+  --opc-lh-body:  1.68;
+}
+
+/* ───────── Page Frame ───────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--opc-font-serif);
+  background: var(--opc-bg-canvas);
+  color: var(--opc-brand-ink);
+  font-size: var(--opc-fs-body);
+  line-height: 1.58;
+}
+.opc-page {
+  max-width: 860px;
+  margin: 36px auto;
+  background: var(--opc-bg-page);
+  box-shadow: 0 2px 18px rgba(0,0,0,0.13);
+  padding: 56px 68px 72px;
+  position: relative;
+}
+
+/* ───────── Letterhead ───────── */
+.opc-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2.5px solid var(--opc-brand-primary);
+  padding-bottom: 10px;
+  margin-bottom: 6px;
+}
+.opc-firm-name {
+  font-size: 8pt;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--opc-brand-primary);
+  font-family: var(--opc-font-sans);
+  font-weight: 700;
+}
+.opc-doc-meta {
+  font-family: var(--opc-font-sans);
+  font-size: var(--opc-fs-meta);
+  color: #555;
+  text-align: right;
+  line-height: 1.65;
+}
+.opc-confidential {
+  background: var(--opc-brand-primary);
+  color: #fff;
+  text-align: center;
+  font-family: var(--opc-font-sans);
+  font-size: 7pt;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 3px 0;
+  margin-bottom: 30px;
+}
+
+/* ───────── Title Block ───────── */
+.opc-title-block {
+  border-left: 4px solid var(--opc-brand-primary);
+  padding-left: 16px;
+  margin-bottom: 28px;
+}
+.opc-report-type {
+  font-family: var(--opc-font-sans);
+  font-size: 7.5pt;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 4px;
+}
+.opc-report-title {
+  font-size: var(--opc-fs-title);
+  font-weight: bold;
+  color: var(--opc-brand-primary);
+  line-height: var(--opc-lh-tight);
+}
+.opc-report-subtitle {
+  font-size: var(--opc-fs-subtitle);
+  color: #444;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+/* ───────── Rating Pills ───────── */
+.opc-rating-banner {
+  display: flex; gap: 12px; align-items: center;
+  margin-bottom: 28px; flex-wrap: wrap;
+}
+.opc-rating-pill {
+  display: inline-block;
+  background: var(--opc-brand-primary);
+  color: #fff;
+  font-family: var(--opc-font-sans);
+  font-size: 8.5pt; font-weight: 700;
+  padding: 5px 16px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.opc-rating-pill.buy   { background: var(--opc-bull-green); }
+.opc-rating-pill.watch { background: var(--opc-warn); }
+.opc-rating-pill.risk  { background: var(--opc-bull-red); }
+
+/* ───────── Snap Stats Bar (Top KPI) ───────── */
+.opc-snap-bar {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+  border: 1px solid var(--opc-border); margin-bottom: 30px;
+}
+.opc-snap-bar.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.opc-snap-item {
+  padding: 11px 13px;
+  border-right: 1px solid var(--opc-border);
+}
+.opc-snap-item:last-child { border-right: none; }
+.opc-snap-label {
+  font-family: var(--opc-font-sans);
+  font-size: 6.5pt; text-transform: uppercase;
+  letter-spacing: 1px; color: #888; margin-bottom: 4px;
+}
+.opc-snap-value {
+  font-size: 12pt; font-weight: bold;
+  color: var(--opc-brand-primary); line-height: 1.2;
+}
+.opc-snap-sub {
+  font-size: 7pt; color: #666; font-family: var(--opc-font-sans);
+}
+
+/* ───────── Section ───────── */
+.opc-section { margin-bottom: 28px; }
+.opc-section-title {
+  font-family: var(--opc-font-sans);
+  font-size: var(--opc-fs-section);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--opc-brand-primary);
+  border-bottom: 1px solid var(--opc-brand-primary);
+  padding-bottom: 3px;
+  margin-bottom: 13px;
+}
+
+/* ───────── Body ───────── */
+p.opc-body {
+  font-size: var(--opc-fs-body);
+  line-height: var(--opc-lh-body);
+  color: var(--opc-brand-ink);
+  margin-bottom: 10px;
+}
+p.opc-body strong { color: var(--opc-brand-primary); }
+.opc-note-text {
+  font-size: 8pt; color: #777; font-family: var(--opc-font-sans);
+  font-style: italic; margin-top: 4px;
+}
+hr.opc-divider {
+  border: none; border-top: 1px dashed #ccc; margin: 18px 0;
+}
+
+/* ───────── Tables ───────── */
+.opc-data-table {
+  width: 100%; border-collapse: collapse;
+  font-size: var(--opc-fs-table); margin-bottom: 6px;
+}
+.opc-data-table th {
+  background: var(--opc-brand-primary); color: #fff;
+  font-family: var(--opc-font-sans); font-size: var(--opc-fs-th);
+  text-transform: uppercase; letter-spacing: 1px;
+  padding: 7px 10px; text-align: left; font-weight: 700;
+}
+.opc-data-table td {
+  padding: 7px 10px; border-bottom: 1px solid var(--opc-border-soft);
+  vertical-align: top;
+}
+.opc-data-table tr:nth-child(even) td { background: var(--opc-bg-soft); }
+.opc-data-table .opc-label-col {
+  font-weight: bold; color: var(--opc-brand-primary); width: 28%;
+  font-family: var(--opc-font-sans); font-size: 8.5pt;
+}
+
+/* ───────── Comp Table（对标矩阵） ───────── */
+.opc-comp-table {
+  width: 100%; border-collapse: collapse;
+  font-size: var(--opc-fs-table-sm); margin-bottom: 6px;
+}
+.opc-comp-table th {
+  background: var(--opc-brand-primary); color: #fff;
+  font-family: var(--opc-font-sans); font-size: 7pt;
+  text-transform: uppercase; letter-spacing: 0.8px;
+  padding: 7px 9px; text-align: center; font-weight: 700;
+}
+.opc-comp-table th:first-child { text-align: left; }
+.opc-comp-table td {
+  padding: 7px 9px; border-bottom: 1px solid var(--opc-border-soft);
+  vertical-align: middle; text-align: center;
+}
+.opc-comp-table td:first-child {
+  text-align: left; font-weight: bold;
+  color: var(--opc-brand-primary);
+  font-family: var(--opc-font-sans); font-size: 8pt;
+}
+.opc-comp-table tr:nth-child(even) td { background: var(--opc-bg-soft); }
+.opc-comp-table .opc-highlight-row td {
+  background: #eef0f8 !important;
+  border-left: 3px solid var(--opc-brand-primary);
+}
+.opc-star-high { color: var(--opc-bull-green); font-weight: bold; }
+.opc-star-med  { color: var(--opc-warn); font-weight: bold; }
+.opc-star-low  { color: #999; }
+
+/* ───────── Risk Table ───────── */
+.opc-risk-table { width: 100%; border-collapse: collapse; font-size: var(--opc-fs-table); }
+.opc-risk-table th {
+  background: #3d1a00; color: #fff;
+  font-family: var(--opc-font-sans); font-size: 7pt;
+  text-transform: uppercase; letter-spacing: 1px;
+  padding: 7px 10px; text-align: left;
+}
+.opc-risk-table td {
+  padding: 7px 10px; border-bottom: 1px solid var(--opc-border-soft);
+  vertical-align: top; line-height: 1.5;
+}
+.opc-risk-table tr:nth-child(even) td { background: var(--opc-bg-redrow); }
+.opc-risk-high   { color: var(--opc-risk-high); font-weight: 700; font-family: var(--opc-font-sans); font-size: 7.5pt; letter-spacing: 0.5px; }
+.opc-risk-medium { color: var(--opc-risk-med);  font-weight: 700; font-family: var(--opc-font-sans); font-size: 7.5pt; }
+.opc-risk-low    { color: var(--opc-risk-low);  font-weight: 700; font-family: var(--opc-font-sans); font-size: 7.5pt; }
+
+/* ───────── Highlight Grid（双栏看多/看空） ───────── */
+.opc-highlight-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 4px;
+}
+.opc-highlight-box {
+  border: 1px solid var(--opc-border);
+  padding: 12px 14px; background: var(--opc-bg-soft);
+}
+.opc-highlight-num {
+  font-family: var(--opc-font-sans);
+  font-size: 7pt; font-weight: 700; letter-spacing: 1px;
+  color: #888; text-transform: uppercase; margin-bottom: 3px;
+}
+.opc-highlight-heading {
+  font-weight: bold; color: var(--opc-brand-primary);
+  font-size: 10pt; margin-bottom: 5px;
+}
+.opc-highlight-body {
+  font-size: 9.5pt; color: #333; line-height: 1.52;
+}
+
+/* ───────── Tech Pillar Grid（技术三立柱） ───────── */
+.opc-tech-pillar-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px; margin-bottom: 4px;
+}
+.opc-tech-pillar {
+  border: 1px solid var(--opc-brand-primary);
+  padding: 12px 13px; background: var(--opc-bg-band);
+}
+.opc-tech-pillar-title {
+  font-family: var(--opc-font-sans);
+  font-size: 8pt; font-weight: 700;
+  color: var(--opc-brand-primary); text-transform: uppercase;
+  letter-spacing: 0.5px; margin-bottom: 5px;
+}
+.opc-tech-pillar-body {
+  font-size: 8.5pt; color: #444; line-height: 1.5;
+}
+.opc-tech-perf {
+  display: inline-block; background: var(--opc-brand-primary); color: #fff;
+  font-family: var(--opc-font-sans); font-size: 7.5pt; font-weight: 700;
+  padding: 2px 10px; margin-top: 8px; letter-spacing: 0.5px;
+}
+
+/* ───────── Verdict Box（综合评价） ───────── */
+.opc-verdict-box {
+  border: 2px solid var(--opc-brand-primary);
+  padding: 18px 22px; background: var(--opc-bg-band); margin-bottom: 10px;
+}
+.opc-verdict-label {
+  font-family: var(--opc-font-sans);
+  font-size: 7pt; letter-spacing: 2px; text-transform: uppercase;
+  color: #888; margin-bottom: 6px;
+}
+.opc-verdict-text {
+  font-size: 10.5pt; line-height: 1.65; color: var(--opc-brand-ink);
+}
+.opc-verdict-rating {
+  display: inline-block; background: var(--opc-bull-green); color: #fff;
+  font-family: var(--opc-font-sans);
+  font-size: 9pt; font-weight: 700;
+  padding: 4px 14px; margin-top: 10px; letter-spacing: 1px;
+}
+.opc-verdict-rating.watch { background: var(--opc-warn); }
+.opc-verdict-rating.risk  { background: var(--opc-bull-red); }
+
+/* ───────── Blue Team Box（蓝军反驳视角） ───────── */
+.opc-blueteam-box {
+  border: 2px solid var(--opc-bull-red);
+  padding: 16px 20px; background: var(--opc-bg-redband); margin-bottom: 12px;
+}
+.opc-blueteam-label {
+  font-family: var(--opc-font-sans);
+  font-size: 7pt; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--opc-bull-red); margin-bottom: 6px; font-weight: 700;
+}
+
+/* ───────── Market Bar（市场数据横条） ───────── */
+.opc-market-bar {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  border: 1px solid var(--opc-border); margin: 10px 0 6px;
+  background: var(--opc-bg-band);
+}
+.opc-market-item {
+  padding: 10px 12px;
+  border-right: 1px solid var(--opc-border);
+  text-align: center;
+}
+.opc-market-item:last-child { border-right: none; }
+.opc-market-fig {
+  font-size: 14pt; font-weight: bold; color: var(--opc-brand-primary); line-height: 1.2;
+}
+.opc-market-desc {
+  font-family: var(--opc-font-sans); font-size: 7pt; color: #666;
+  text-transform: uppercase; letter-spacing: 0.5px; margin-top: 3px;
+}
+
+/* ───────── Callout Strip（金句强调条） ───────── */
+.opc-callout-strip {
+  background: var(--opc-brand-primary); color: #fff;
+  padding: 10px 16px;
+  font-family: var(--opc-font-sans);
+  font-size: 8.5pt; margin: 10px 0 14px;
+  font-weight: 600; letter-spacing: 0.3px;
+}
+
+/* ───────── List ───────── */
+ul.opc-list { list-style: none; padding: 0; }
+ul.opc-list li {
+  padding: 3px 0 3px 14px; position: relative;
+  font-size: 9.5pt; color: #222; line-height: 1.55;
+}
+ul.opc-list li::before {
+  content: '▸'; position: absolute; left: 0;
+  color: var(--opc-brand-primary); font-size: 8pt; top: 4px;
+}
+
+/* ───────── Analyst Sig & Footer ───────── */
+.opc-analyst-sig {
+  margin-top: 22px;
+  border-top: 1px solid var(--opc-border);
+  padding-top: 10px;
+  font-family: var(--opc-font-sans);
+  font-size: 8pt; color: #444;
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+.opc-footer {
+  margin-top: 36px;
+  border-top: 1px solid var(--opc-border);
+  padding-top: 10px;
+  font-family: var(--opc-font-sans);
+  font-size: 7pt; color: #999; line-height: 1.65;
+}
+
+/* ───────── Print & Mobile ───────── */
+@media print {
+  body { background: #fff; }
+  .opc-page { box-shadow: none; margin: 0; padding: 36px 50px; }
+}
+@media (max-width: 640px) {
+  .opc-page { padding: 20px 16px; }
+  .opc-snap-bar, .opc-snap-bar.cols-4 { grid-template-columns: 1fr 1fr; }
+  .opc-highlight-grid { grid-template-columns: 1fr; }
+  .opc-tech-pillar-grid { grid-template-columns: 1fr; }
+  .opc-market-bar { grid-template-columns: 1fr 1fr; }
+}
