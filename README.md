@@ -123,7 +123,7 @@ investor-skill/
 
 ## 与 OPC-Studio 其他 skill 协同
 
-本 skill 可与 [`presenter-skill`](../presenter-skill/)（路演者.skill）配合使用：
+本 skill 可与 [`presenter-skill`](https://github.com/D-kart/presenter-skill)（路演者.skill）配合使用：
 - **investor-skill** 扮演审判者（看项目 / 找雷 / 判断投否）
 - **presenter-skill** 扮演被审判者（讲项目 / 争取 TS）
 - 创始人可用 presenter-skill 写 BP，再用 investor-skill 自检打分，识别可能被投资人挑刺的点。

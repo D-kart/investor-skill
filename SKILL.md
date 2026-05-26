@@ -107,4 +107,4 @@ metadata:
 
 ---
 
-*Powered by OPC-Studio · v1.0.0*
+*Powered by OPC-Studio · v1.0.2*
