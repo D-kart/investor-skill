@@ -2,7 +2,7 @@
 
 > 把 AI Agent 变成一名冷静、结构化、可落地的一级市场机构投资人。
 
-![version](https://img.shields.io/badge/version-1.0.2-blue)
+![version](https://img.shields.io/badge/version-1.0.3-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 ![platforms](https://img.shields.io/badge/platforms-Claude%20%7C%20WorkBuddy%20%7C%20OpenClaw%20%7C%20Hermes%20%7C%20SkillHub-orange)
 ![made by](https://img.shields.io/badge/made%20by-OPC--Studio-black)
@@ -22,9 +22,9 @@
 |---|---|---|
 | 1 | **行业研究** | 结构化行研报告（含 TAM/SAM/SOM 测算 + Why Now 驱动力） |
 | 2 | **项目尽职调查** | 业务 / 财务 / 法务 / 团队 四维尽调清单 + 尽调纪要 |
-| 3 | **商业计划书快速分析** | BP 速析报告（亮点 / 疑点 / 必问清单 + 九要素打分） |
-| 4 | **竞争格局分析与市场定位** | 竞争矩阵 + 定位图 + 护城河定性论证（**不打分**） |
-| 5 | **核心技术与产品特点呈现** | 技术卖点提炼 + 差异化拆解 + 五维壁垒定性论证 |
+| 3 | **商业计划书快速分析** | BP 速析报告（亮点 / 疑点 / 必问清单 + 九要素定性研判） |
+| 4 | **竞争格局分析与市场定位** | 竞争矩阵 + 定位图 + 护城河定性论证（**不输出聚合分数**） |
+| 5 | **核心技术与产品特点呈现** | 技术卖点提炼 + 差异化拆解 + 五维壁垒定性论证（**不输出聚合分数**） |
 | 6 | **投资备忘录撰写** | 投委会可用的 Investment Memo（HTML 专业研报范） |
 
 ## 何时触发
@@ -41,26 +41,6 @@
 - ⚖️ Verdict Box 投资建议盒 + Analyst Signature
 
 ## 快速上手
-📦 安装
-Claude Skills / WorkBuddy：
-
-
-```bash
-复制
-git clone https://github.com/D-kart/investor-skill.git ~/.claude/skills/investor-skill
-#或
-git clone https://github.com/D-kart/investor-skill.git ~/.workbuddy/skills/investor-skill
-```
-SkillHub：
-
-```
-bash
-复制
-zip -r investor-skill.zip investor-skill/
-```
-
-# 登录 SkillHub 上传 zip
-触发词：投资人 / VC / PE / FA / 看项目 / 投委会 / 投资备忘录 / 尽调 / DD / BP 分析 / 商业计划书 / 行研 / 竞争格局……
 
 ### 在 Claude / WorkBuddy 中使用
 1. 下载 `investor-skill/` 文件夹，放入 `~/.claude/skills/` 或 `~/.workbuddy/skills/`。
@@ -108,7 +88,7 @@ investor-skill/
 2. **结构化输出**：每个结论都有三段式支撑——事实 / 推理 / 判断。
 3. **风险前置**：Red Flag 写在正文前面，不粉饰。
 4. **可决策**：输出的是"投 / 跟投 / 继续跟进 / Pass"，不是描述。
-5. **不打分**：技术壁垒 / 护城河用事实定量论证，拒绝主观评分。
+5. **不输出聚合分数**：技术壁垒 / 护城河 / 产品力 / BP 评估全部用事实定量论证，拒绝 1-5 星 / N/25 分这类主观聚合数。
 6. **报告独立性**：每份报告只评本标的，不跨标的引用。
 
 ## 兼容性
@@ -123,10 +103,10 @@ investor-skill/
 
 ## 与 OPC-Studio 其他 skill 协同
 
-本 skill 可与 [`presenter-skill`](https://github.com/D-kart/presenter-skill)（路演者.skill）配合使用：
+本 skill 可与 [`presenter-skill`](../presenter-skill/)（路演者.skill）配合使用：
 - **investor-skill** 扮演审判者（看项目 / 找雷 / 判断投否）
 - **presenter-skill** 扮演被审判者（讲项目 / 争取 TS）
-- 创始人可用 presenter-skill 写 BP，再用 investor-skill 自检打分，识别可能被投资人挑刺的点。
+- 创始人可先用 presenter-skill 完成 BP，再用 investor-skill 走一遍九要素研判，识别可能被投资人挑刺的点。
 
 ## 许可证
 

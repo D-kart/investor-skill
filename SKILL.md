@@ -6,7 +6,7 @@ compatibility: 纯 Markdown 技能，无外部依赖；兼容 Claude Skills / Wo
 metadata:
   chinese-name: 投资人.skill
   author: OPC-Studio
-  version: 1.0.2
+  version: 1.0.3
   category: finance-investment
   target-platforms:
     - claude-skills
@@ -107,4 +107,4 @@ metadata:
 
 ---
 
-*Powered by OPC-Studio · v1.0.2*
+*Powered by OPC-Studio · v1.0.3*
